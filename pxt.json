@@ -9,11 +9,11 @@
     },
     "files": [
         "README.md",
-        "fireleds.ts",
+        "fireleds.ts"
     ],
     "testFiles": [
         "firetest.ts"
     ],
     "yotta": {},
-    "public": true,
+    "public": true
 }

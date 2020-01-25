@@ -25,7 +25,7 @@ namespace fireled
         {
             for (let i=0; i<this.numLeds, i++)
             {
-                this.setColour(i, colour)   
+                this.setColour(i, colour);
             }
         }
 
