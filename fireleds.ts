@@ -19,8 +19,9 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="set whole band to %colour" 
+        //% blockId="fire_setBand" block="set 01 band to %colour" 
         //% weight=50
+        //% parts="fireled"
         setBand(colour: number)
         {
             for (let i=0; i<this.numLeds, i++)
@@ -32,8 +33,9 @@ namespace fireled
         /** 
          * Update the LEDs in the Band
          */
-        //% blockId="fire_updateBand" block="update Band"
+        //% blockId="fire_updateBand" block="update band"
         //% weight=50
+        //% parts="fireled"
         updateBand()
         {
             sk6812.sendBuffer(this.ledBuffer, this.ledPin);
@@ -87,8 +89,9 @@ namespace fireled
      * @param pin FireLed pin
      * @param count number of FireLeds in the Band
      */
-    //% blockId="fire_newBand" block="fireLed Band on pin %pin|with %count|FireLeds"
+    //% blockId="fire_newBand" block="band on pin %pin|with %count|FireLeds"
     //% weight=50
+    //% parts="fireled"
     export function newBand(pin: DigitalPin, count: number): Band
     {
         let band = new Band();
