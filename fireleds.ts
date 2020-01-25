@@ -52,9 +52,9 @@ namespace fireled
                 green = (green * br) >> 8;
                 blue = (blue * br) >> 8;
             }
-            this.ledBuffer (idx*3, red];
-            this.ledBuffer (idx*3+1, green];
-            this.ledBuffer (idx*3+2, blue];
+            this.ledBuffer [idx*3] = red;
+            this.ledBuffer [idx*3+1] = green;
+            this.ledBuffer [idx*3+2] = blue;
         }
 
     }
