@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 09 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 10 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -40,17 +40,17 @@ namespace fireled
         //% parts="fireled"
         setPixel(pixel: number, colour: number)
         {
-            let red = unpackR(colour);
-            let green = unpackG(colour);
-            let blue = unpackB(colour);
+            let r = unpackR(colour);
+            let g = unpackG(colour);
+            let b = unpackB(colour);
 
             const bright = this.brightness & 0xff;
-            red = (red * br) >> 8;
-            green = (green * br) >> 8;
-            blue = (blue * br) >> 8;
-            this.ledBuffer [pixel*3] = red;
-            this.ledBuffer [pixel*3+1] = green;
-            this.ledBuffer [pixel*3+2] = blue;
+            r = (bright * r) >> 8;
+            g = (bright * g) >> 8;
+            b = (bright * b) >> 8;
+            this.ledBuffer [pixel*3] = r;
+            this.ledBuffer [pixel*3+1] = g;
+            this.ledBuffer [pixel*3+2] = b;
         }
 
         /* Sets the brightness for future updates */
