@@ -19,12 +19,12 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 02 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 03 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
         {
-            for (let i=0; i<this.numLeds, i++)
+            for (let i=0; i<this.numLeds; i++)
             {
                 this.setColour(i, colour);
             }
