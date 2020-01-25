@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 05 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 06 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -30,8 +30,64 @@ namespace fireled
             }
         }
 
+        /**
+         * Sets the colour of a single FireLed
+         * @param pixel FireLed to set
+         * @param colour colour to set
+         */
+        //% blockId="fire_setPixel" block="%band|set FireLed %pixel|to %colour" 
+        //% weight=50
+        //% parts="fireled"
+        setPixel(idx: number, colour: number)
+        {
+            let red = unpackR(colour);
+            let green = unpackG(colour);
+            let blue = unpackB(colour);
+
+            const bright = this.brightness & 0xff;
+            red = (red * br) >> 8;
+            green = (green * br) >> 8;
+            blue = (blue * br) >> 8;
+            this.ledBuffer [idx*3] = red;
+            this.ledBuffer [idx*3+1] = green;
+            this.ledBuffer [idx*3+2] = blue;
+        }
+
+        /* Sets the brightness for future updates */
+        setBrightness(bright: number): void
+        {
+            this.brightness = bright & 0xff;
+        }
+
+        /* Clears all the FireLeds in the band */
+        clearBand()
+        {
+            for (let i=0; i < (3 * this.numLeds); i++)
+            {
+                this.ledBuffer[i] = 0;
+            }
+        }
+
+        /* Set band to rainbow colours Red to Blue */
+        setRainbow()
+        {
+            
+        }
+
+        /* Shift band right one pixel, blanking first pixel */
+        shiftBand()
+        {
+            
+        }
+
+        /* Rotate band one pixel */
+        rotateBand()
+        {
+            
+        }
+
         /** 
-         * Update the LEDs in the Band
+         * Update the FireLeds to match the buffer
          */
         //% blockId="fire_updateBand" block="%band|update band"
         //% weight=50
@@ -39,34 +95,6 @@ namespace fireled
         updateBand()
         {
             sk6812.sendBuffer(this.ledBuffer, this.ledPin);
-        }
-
-        private setColour(idx: number, colour: number)
-        {
-            let red = unpackR(colour);
-            let green = unpackG(colour);
-            let blue = unpackB(colour);
-
-            const br = this.brightness;
-            if (br < 255)
-            {
-                red = (red * br) >> 8;
-                green = (green * br) >> 8;
-                blue = (blue * br) >> 8;
-            }
-            this.ledBuffer [idx*3] = red;
-            this.ledBuffer [idx*3+1] = green;
-            this.ledBuffer [idx*3+2] = blue;
-        }
-
-        /**
-         * Gets the number of pixels declared on the strip
-         */
-        //% blockId="band_length" block="%band|length"
-        //% weight=50
-        length()
-        {
-            return this.numLeds;
         }
 
     }
