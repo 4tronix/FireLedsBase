@@ -87,7 +87,7 @@ namespace fireled
      * @param pin FireLed pin
      * @param count number of FireLeds in the Band
      */
-    //% blockId="fire_newBand" block="fireLed Band on pin %pin|with %ncount|FireLeds"
+    //% blockId="fire_newBand" block="fireLed Band on pin %pin|with %count|FireLeds"
     //% weight=50
     export function newBand(pin: DigitalPin, count: number): Band
     {
