@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 07 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 08 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -54,7 +54,7 @@ namespace fireled
         }
 
         /* Sets the brightness for future updates */
-        setBrightness(bright: number): void
+        setBrightness(bright: number)
         {
             this.brightness = bright & 0xff;
         }
