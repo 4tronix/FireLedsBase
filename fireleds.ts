@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 04 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 05 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -41,7 +41,7 @@ namespace fireled
             sk6812.sendBuffer(this.ledBuffer, this.ledPin);
         }
 
-        private setColour(colour: number, idx: number)
+        private setColour(idx: number, colour: number)
         {
             let red = unpackR(colour);
             let green = unpackG(colour);
