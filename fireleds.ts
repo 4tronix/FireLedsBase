@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 03 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 04 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -57,6 +57,16 @@ namespace fireled
             this.ledBuffer [idx*3] = red;
             this.ledBuffer [idx*3+1] = green;
             this.ledBuffer [idx*3+2] = blue;
+        }
+
+        /**
+         * Gets the number of pixels declared on the strip
+         */
+        //% blockId="band_length" block="%band|length"
+        //% weight=50
+        length()
+        {
+            return this.numLeds;
         }
 
     }
