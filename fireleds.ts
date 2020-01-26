@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 11 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 12 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -68,24 +68,6 @@ namespace fireled
             }
         }
 
-        /* get rgb colour number for Rainbow */
-        private wheel(pos: number): number
-        {
-            /* Generate rainbow colors across 0-255 positions */
-            if (pos < 85)
-		return fromRGB(255 - pos * 3, pos * 3, 0); // Red -> Green
-            else if (pos < 170)
-            {
-                pos = pos - 85
-                return fromRGB(0, 255 - pos * 3, pos * 3); // Green -> Blue
-            }
-            else
-            {
-                pos = pos - 170
-                return fromRGB(pos * 3, 0, 255 - pos * 3); // Blue -> Red
-            }
-        }
-
         /* Set band to rainbow colours Red to Blue */
         setRainbow()
         {
@@ -100,9 +82,10 @@ namespace fireled
         shiftBand()
         {
             let step=3;
+            let j=0;
             for (let i=1; i<this.numLeds; i++)
             {
-                let j = i*step;
+                j = j + step;
                 this.ledBuffer[j+0] = this.ledBuffer[j+0-step];
                 this.ledBuffer[j+1] = this.ledBuffer[j+1-step];
                 this.ledBuffer[j+2] = this.ledBuffer[j+2-step];
@@ -147,12 +130,12 @@ namespace fireled
             return this.fromRGB(255 - pos * 3, pos * 3, 0); // Red -> Green
         else if (pos < 170)
         {
-            pos = pos - 85
+            pos = pos - 85;
             return this.fromRGB(0, 255 - pos * 3, pos * 3); // Green -> Blue
         }
         else
         {
-            pos = pos - 170
+            pos = pos - 170;
             return this.fromRGB(pos * 3, 0, 255 - pos * 3); // Blue -> Red
         }
     }
