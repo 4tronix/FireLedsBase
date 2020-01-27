@@ -1,4 +1,4 @@
-﻿/* Helper Functions for 4tronix FireLeds */
+﻿/* Makecode Helper Functions for 4tronix FireLeds */
 
 namespace fireled
 {
@@ -11,9 +11,7 @@ namespace fireled
         brightness: number;
         numLeds: number;
 
-        /**
-         * Sets the whole Band colour 
-         */
+        /* Sets the whole Band colour */
         setBand(colour: number)
         {
             for (let i=0; i<this.numLeds; i++)
@@ -22,9 +20,7 @@ namespace fireled
             }
         }
 
-        /**
-         * Sets the colour of a single FireLed
-         */
+        /* Sets the colour of a single FireLed */
         setPixel(pixel: number, colour: number)
         {
             let r = unpackR(colour);
@@ -96,9 +92,7 @@ namespace fireled
             this.ledBuffer[2] = b;
         }
 
-        /** 
-         * Update the FireLeds to match the buffer
-         */
+        /* Update the FireLeds to match the buffer */
         updateBand()
         {
             sk6812.sendBuffer(this.ledBuffer, this.ledPin);
@@ -124,32 +118,34 @@ namespace fireled
         }
     }
 
+    /* Create colour number from Red, Green & Blue values */
     function fromRGB(a: number, b: number, c: number): number
     {
         return ((a & 0xFF) << 16) | ((b & 0xFF) << 8) | (c & 0xFF);
     }
 
+    /* extract the Red value from the colour number */
     function unpackR(rgb: number): number
     {
         let r = (rgb >> 16) & 0xFF;
         return r;
     }
 
+    /* extract the Green value from the colour number */
     function unpackG(rgb: number): number
     {
         let g = (rgb >> 8) & 0xFF;
         return g;
     }
 
+    /* extract the Blue value from the colour number */
     function unpackB(rgb: number): number
     {
         let b = (rgb) & 0xFF;
         return b;
     }
 
-    /** 
-     * Create a new FireLed Band
-     */
+    /* Create a new FireLed Band */
     export function newBand(pin: DigitalPin, count: number): Band
     {
         let band = new Band();
