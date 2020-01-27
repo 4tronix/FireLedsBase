@@ -1,6 +1,6 @@
 {
     "name": "FireLeds",
-    "version": "0.0.14",
+    "version": "0.1.0",
     "description": "4tronix FireLed Helper Functions",
     "license": "MIT",
     "dependencies": {
@@ -11,9 +11,7 @@
         "README.md",
         "fireleds.ts"
     ],
-    "testFiles": [
-        "firetest.ts"
-    ],
+    "testFiles": [],
     "yotta": {},
     "public": true
 }
