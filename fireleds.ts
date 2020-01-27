@@ -19,7 +19,7 @@ namespace fireled
          * Sets the whole Band colour 
          * @param colour Colour to set
          */
-        //% blockId="fire_setBand" block="%band|set 13 band to %colour" 
+        //% blockId="fire_setBand" block="%band|set 14 band to %colour" 
         //% weight=50
         //% parts="fireled"
         setBand(colour: number)
@@ -82,10 +82,10 @@ namespace fireled
         shiftBand()
         {
             let step=3;
-            let j=0;
+            let j = step * this.numLeds;
             for (let i=1; i<this.numLeds; i++)
             {
-                j = j + step;
+                j = j - step;
                 this.ledBuffer[j+0] = this.ledBuffer[j+0-step];
                 this.ledBuffer[j+1] = this.ledBuffer[j+1-step];
                 this.ledBuffer[j+2] = this.ledBuffer[j+2-step];
