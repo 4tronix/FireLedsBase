@@ -149,6 +149,7 @@ namespace fireled
     export function newBand(pin: DigitalPin, count: number): Band
     {
         let band = new Band();
+        pins.digitalWritePin(pin, 0);
         band.ledBuffer = pins.createBuffer(count * 3);
         band.numLeds = count;
         band.brightness = 40;
