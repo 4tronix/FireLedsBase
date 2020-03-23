@@ -23,7 +23,7 @@ namespace fireled
         /* Sets the colour of a single FireLed */
         setPixel(pixel: number, colour: number)
         {
-            if (number < numLeds)
+            if (pixel < this.numLeds)
             {
                 let r = unpackR(colour);
                 let g = unpackG(colour);
