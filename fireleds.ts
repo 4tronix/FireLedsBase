@@ -23,17 +23,20 @@ namespace fireled
         /* Sets the colour of a single FireLed */
         setPixel(pixel: number, colour: number)
         {
-            let r = unpackR(colour);
-            let g = unpackG(colour);
-            let b = unpackB(colour);
+            if (number < numLeds)
+            {
+                let r = unpackR(colour);
+                let g = unpackG(colour);
+                let b = unpackB(colour);
 
-            const bright = this.brightness & 0xff;
-            r = (bright * r) >> 8;
-            g = (bright * g) >> 8;
-            b = (bright * b) >> 8;
-            this.ledBuffer [pixel*3] = g;
-            this.ledBuffer [pixel*3+1] = r; // yes, I know. Right?
-            this.ledBuffer [pixel*3+2] = b;
+                const bright = this.brightness & 0xff;
+                r = (bright * r) >> 8;
+                g = (bright * g) >> 8;
+                b = (bright * b) >> 8;
+                this.ledBuffer [pixel*3] = g;
+                this.ledBuffer [pixel*3+1] = r; // yes, I know. Right?
+                this.ledBuffer [pixel*3+2] = b;
+            }
         }
 
         /* Sets the brightness for future updates */
