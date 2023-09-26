@@ -1,6 +1,6 @@
 {
     "name": "FireLedsBase",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "4tronix FireLed Helper Functions",
     "license": "MIT",
     "dependencies": {
