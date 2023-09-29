@@ -1,11 +1,11 @@
 {
     "name": "FireLedsBase",
-    "version": "0.1.7",
+    "version": "1.2.0",
     "description": "4tronix FireLed Helper Functions",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "sk6812": "github:4tronix/SK6812"
+        "sk6812": "github:4tronix/SK6812#1.0.0"
     },
     "files": [
         "README.md",
