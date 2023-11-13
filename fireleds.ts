@@ -98,7 +98,7 @@ namespace fireled
         /* Update the FireLeds to match the buffer */
         updateBand()
         {
-            sk6812.sendBuffer(this.ledBuffer, this.ledPin);
+            sendBuffer(this.ledBuffer, this.ledPin);
         }
 
     }
